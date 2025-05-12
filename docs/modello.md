@@ -1,0 +1,1 @@
+![](./assets/images/planning_model_uml.png)
