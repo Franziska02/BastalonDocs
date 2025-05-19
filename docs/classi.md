@@ -85,3 +85,130 @@
 - GetStats
 - CambioArma
 
+#### DANNI 
+
+1. Attributi
+
+    - dannoInflitto: int
+    - dannoSubito: int
+
+#### ARMI
+
+1. Attributi
+
+    - dannoInflitto: int
+    
+
+#### LOOT 
+
+1. Attributi
+        - nome: string
+        - descrizione: string
+
+
+#### STATISTICHE GLOBALI  
+
+1. Attributi
+
+    - vita: int
+    - Cura: int
+    - monete: int
+
+2. Funzione
+
+    - ProgressioneStoria()
+    - ModificaStat()
+### DIAGRAMMA DI CLASSE
+```mermaid
+classDiagram 
+ class Personaggio {
+        - vita: int
+        - forza: int
+        - agilità: int
+
+        - GetStat()
+        - Movimento (Agi)
+        - Attacco (For, Arma)
+        - Cura()
+        - RiceviDanno()
+    }
+
+class Inventario {
+    - Arma1
+    - Arma2
+    - GetStats()
+    - CambioArma()
+
+}
+
+class Nemico {
+    - vita: int
+    - forza: int
+    - agilità: int
+    - Movimento(Agi)
+    - Attaccco(For)
+    - RiceviDanno()
+    - DroppaLoot()
+}
+
+class Oggetti {
+    - vita: int
+    - RiceviDanno()
+    - DroppaLoot()
+}
+
+class Cura {
+    - Utilizzi: int
+    - NumeroCure: int
+    - %_Cura: int
+    - ScalaUtilizzi()
+    - Potenzia N.Cure()
+    - Potenzia%Cura()
+
+}
+
+class Npc {
+    - ProgressioneStoria: int
+    - Interazione()
+    - SceltaDialogo()
+}
+
+class Danni {
+    - dannoInflitto: int
+    - dannoSubito: int
+
+}
+  
+class Armi {
+        - dannoInflitto: int
+    }
+
+class Loot {
+        - nome: string
+        - descrizione: string
+    }
+
+class StatisticheGlobali{
+    - vita: int
+    - Cura: int
+    - monete: int
+    - ProgressioneStoria()
+    - ModificaStat()
+
+}
+
+Personaggio --|> Inventario :ha
+Inventario --|> Armi :contiene
+Armi --|> Loot
+Loot --|> Inventario : è contenuto
+Loot --|> StatisticheGlobali : modifica
+Loot <|--|> Nemico : è droppato
+Nemico <|--|> Danni
+Danni <|--|> Personaggio
+Danni <|--|> StatisticheGlobali
+Danni --|> Oggetti
+StatisticheGlobali --|> Npc : contiene stato
+Personaggio --|> Npc : interagisce
+Personaggio --|> Cura
+Cura --|> StatisticheGlobali
+```
