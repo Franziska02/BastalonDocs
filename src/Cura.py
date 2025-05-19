@@ -10,8 +10,13 @@ class Cura():
     def GetStat(self, Utilizzi: int, NumeroCure: int, CuraEffettiva: int):
         pass
 
+    def Healing(self, Vita, CuraEffettiva):
+        Heal = Vita + CuraEffettiva
+        return Heal
+
     def ScalaUtilizzi(self, Utilizzi):
-        pass
+        Utilizzi-1
+        return Utilizzi
 
     def __str__(self):
         return f"Posso curarmi {self.Utilizzi} volte per {self.CuraEffettiva} punti vita"

@@ -6,13 +6,23 @@ from src.Npc import Npc
 from src.Oggetti import Oggetti
 from src.Armi import Arma
 
+
+Arma1 = Arma("spada", 60, 1)
+Arma2 = Arma("spadone", 60, 2)
+Arma3 = Arma("spadino", 60, 3)
+Arma4 = Arma("spadetta", 60, 4)
+Arma5 = Arma("spadonza", 60, 5)
+Arma6 = Arma("spadapim", 60, 6)
+
 Personaggio = Personaggio(100, 10, 10)
-Inventario = Inventario("Spada","Badile",0)
+Inventario = Inventario(Arma1,Arma2,0)
 Cura = Cura(7,7,20)
 Nemico = Nemico(10,10,4)
 Npc = Npc(1)
 Oggetti = Oggetti(1)
-Arma1 = Arma("spada", 60)
+
+
+
 
 #print(Personaggio)
 #print(Inventario)
@@ -25,10 +35,10 @@ DannoEffettivo = Personaggio.Attacco(Personaggio.Forza,Arma1.DannoArma)
 print(DannoEffettivo)
 
 Velocita = Personaggio.Movimento(Personaggio.Agilita)
-print(Velocita)
+#print(Velocita)
 
-Heal = Personaggio.Cura(Personaggio.Vita,Cura.CuraEffettiva)
-print(Heal)
+Heal = Cura.Healing(Personaggio.Vita,Cura.CuraEffettiva)
+#print(Heal)
 
 Personaggio.Vita = Personaggio.RiceviDanno(Personaggio.Vita, Nemico.Attacco(Nemico.Forza))
-print(Personaggio.Vita)
+#print(Personaggio.Vita)

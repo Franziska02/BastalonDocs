@@ -19,10 +19,6 @@ class Personaggio():
         return Attacco
     
 
-    def Cura(self, Vita, CuraEffettiva):
-        Heal = Vita + CuraEffettiva
-        return Heal
-
     def RiceviDanno(self, Vita, DannoNemico):
         Damage = Vita - DannoNemico
         return Damage
