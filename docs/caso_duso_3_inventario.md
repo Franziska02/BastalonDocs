@@ -1,15 +1,12 @@
 # Casi d'uso inventario
 ```mermaid
-classDiagram
-Arma_1 <|-- Get_stats
-Arma_2 <|-- Get_stats
-Cambio_arma --|> Arma_1
-Cambio_arma --|> Arma_2
-Arma_base_1 --|> Arma_1
-Arma_base_2 --|> Arma_2
-Arma_loot --|> Arma_1
-Arma_loot --|> Arma_2
-Droppa_loot --|> Cambio_arma
-Arma_1 --|> Calcolo_danni
-Arma_2 --|> Calcolo_danni
+flowchart TD
+id1(Arma 1)--->id3(Cambio Arma)
+id2(Arma 2)--->id3
+id4(Loot)--->id5(Armi droppate)
+id3-->id5
+id5--->id6(Ottieni statistiche)
+id1-->id7(Mantieni arma)
+id2-->id7
+id7-->id6
 ```

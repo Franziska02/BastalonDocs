@@ -1,6 +1,6 @@
 ### Sistema di Salvataggio
 ```mermaid
-classDiagram
+flowchart TD
     Sistema_salvataggio--> Informazioni_di_progressione
     Informazioni_di_progressione --> Sconfiggi_livello
     Informazioni_di_progressione --> Nuovi_dialoghi
